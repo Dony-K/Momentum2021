@@ -1,13 +1,20 @@
 const clockContainer = document.querySelector(".js-clock"),
 clockTitle = clockContainer.querySelector("h1");
 
+
+function setTime(number) {
+    const setNumber = number < 10 ? `0${number}` : number;
+    return setNumber;
+}
+
 function getTime() {
     const date = new Date();
     const minutes = date.getMinutes();
     const hours = date.getHours();
     const seconds= date.getSeconds();
-    clockTitle.innerText = `${hours}:${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+    clockTitle.innerText = `${setTime(hours)}:${setTime(minutes)}:${setTime(seconds)}`;
 }
+
 
 function init() {
     getTime();
